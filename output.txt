@@ -1,0 +1,4 @@
+Invoice_ID → likely a unique identifier for each invoice
+Vendor_Name → the name of the supplier or vendor
+Amount → the payment amount in currency
+Payment_Date → the date the payment was made
