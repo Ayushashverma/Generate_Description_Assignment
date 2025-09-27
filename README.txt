@@ -1,21 +1,40 @@
-Model choice and why:
-I used the open-source model "google/flan-t5-small" because it is a small instruction-tuned model that generates short, clear descriptions for column headers. It runs locally on CPU and can also use GPU if available. The script automatically falls back to "gpt2" if flan-t5-small is not available.
+CSV Header Description Generator
+Model Choice
 
-How to run:
-1. Create a virtual environment and install dependencies:
-   pip install -r requirements.txt
+Primary: google/flan-t5-small – a lightweight, instruction-tuned model that generates short, meaningful descriptions for CSV headers.
 
-2. Run with a CSV file:
-   python generate.py data.csv
+Fallback: gpt2 – used automatically if flan-t5-small is unavailable.
 
-   (Example: data.csv should have a header row like:
-    Invoice_ID, Vendor_Name, Amount, Payment_Date)
+Reason: Runs locally on CPU/GPU and works efficiently with minimal resources.
 
-   The script will print descriptions to the console and save them into output.txt.
+How to Run
 
-3. Run without a CSV:
-   python generate.py
-   (This will use built-in sample headers.)
+Setup Environment
 
-Challenges:
-The main challenge was running Hugging Face models locally with limited resources. I solved this by choosing flan-t5-small (lightweight, instruction-tuned) and adding GPT-2 as a fallback model in case of compatibility issues.
+pip install -r requirements.txt
+
+
+Run with a CSV File
+
+python generate.py data.csv
+
+
+Example CSV header row:
+
+Invoice_ID, Vendor_Name, Amount, Payment_Date
+
+
+Output: Descriptions printed in console and saved to output.txt.
+
+Run Without a CSV
+
+python generate.py
+
+
+Uses built-in sample headers if no CSV is provided.
+
+Challenges & Solutions
+
+Running Hugging Face models locally with limited resources was challenging.
+
+Solution: Used flan-t5-small for lightweight performance and added GPT-2 as a fallback to ensure reliable output.
